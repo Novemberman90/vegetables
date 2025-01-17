@@ -1,34 +1,36 @@
-$black: #1d1d1d;
+$black: #141414;
 $white: #ffffff;
-$text: #6D6D6D;
-$accent1: #FF7B31;
-$accent1-Bold: #EB671D;
-$accent2: #447777;
-$accent2-lite: #88B7B7;
-$pasive: #FFC177;
-$grey: #D7D7D7;
-$grey-accent: #6D6D6D;
+$green: #A1C487;
+$orange: #FC8A11;
+$light-green: #EAF7E5;
+$beige: #FAF3E7;
+$gray: #F3F3F3;
+$green-bold: #77AC63;
+$semi-white: #EAF7E5;
 
-
-%openSans-400 {
-  font-family: 'OpenSans-Regular';
+%DMSans-400 {
+  font-family: 'DMSans-Regular';
   font-weight: 400;
 }
-%openSans-600 {
-  font-family: 'OpenSans-SemiBold';
-  font-weight: 600;
+%DMSans-It-400 {
+  font-family: 'DMSans-Italic';
+  font-weight:400;
 }
-%openSans-700 {
-  font-family: 'OpenSans-Bold';
+%DMSans-500 {
+  font-family: 'DMSans-Medium';
+  font-weight: 500;
+}
+%DMSans-It-500 {
+  font-family: 'DMSans-MediumItalic';
+  font-weight: 500;
+}
+%DMSans-700 {
+  font-family: 'DMSans-Bold';
   font-weight: 700;
 }
-%openSans-800 {
-  font-family: 'OpenSans-ExtraBold';
-  font-weight: 800;
-}
-%interMedium-500 {
-  font-family: 'Inter-Medium';
-  font-weight: 500;
+%DMSans-It-700 {
+  font-family: 'DMSans-BoldItalic';
+  font-weight: 700;
 }
 
  %checkbox-hidden,
