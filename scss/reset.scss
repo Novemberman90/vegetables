@@ -48,7 +48,9 @@ textarea,
 select {
   font: inherit;
 }
-
+button {
+  -webkit-tap-highlight-color: transparent;
+}
 a {
   text-decoration: none;
 }
