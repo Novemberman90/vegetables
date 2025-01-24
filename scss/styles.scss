@@ -459,7 +459,7 @@
     width: 100%;
     height: auto;
   }
-  &__title {
+  &__item-title {
     @extend %DMSans-700;
     font-size: 32px;
     line-height: 38px;
@@ -737,8 +737,8 @@
 
 /* popup */
 .popup {
-  display: none;
-  &--active {
+ display: none;
+   &--active {
     display: block;
   }
   &__dialog {
@@ -814,7 +814,7 @@
       padding-left: 14px;
     }
   }
-  .product__title {
+  .product__item-title {
    &--cart {
     @extend %DMSans-700;
     font-size: 24px;
@@ -1037,7 +1037,7 @@
     }
   }
   .product {
-    &__card-title {
+    &__item-title {
       font-size: 28px;
       line-height: 32px;
     }
@@ -1104,7 +1104,7 @@
     }
   }
   .product {
-    &__card {
+    &__item {
       padding-left: 10px;
       padding-right: 10px;
     }
@@ -1207,16 +1207,16 @@
       font-size: 28px;
       line-height: 32px;
     }
-    &__card-block {
+    &__item-block {
       gap: 20px;
       grid-template-columns: repeat(2, 1fr);
     }
-    &__card {
+    &__item {
       &:nth-last-child(1) {
         display: none;
       }
     }
-    &__card-title{
+    &__item-title{
       margin-bottom: 8px;
     }
     &__btn {
@@ -1239,6 +1239,15 @@
       font-size: 40px;
       line-height: 44px;
       margin-bottom: 20px;
+    }
+  }
+  .order {
+    .product__item{
+      &--cart {
+        &:nth-last-child(1) {
+          display: flex;
+        }
+      }
     }
   }
 }
@@ -1439,10 +1448,6 @@
       font-size: 24px;
       line-height: 28px;
     }
-    &__card-title {
-      font-size: 24px;
-      line-height: 28px;
-    }
     &__subtitle {
       font-size: 14px;
       line-height: 18px;
@@ -1477,14 +1482,16 @@
     &__content {
       flex-direction: column;
     }
-    .product__title {
+    .product__item-title {
       &--cart {
+        font-size: 18px;
         line-height: 24px;
       }
     }
     .product__item {
        &--cart {
          flex-direction: row;
+         justify-content: space-between;
          max-width: 100%;
        }
      }
@@ -1497,16 +1504,16 @@
 }
 @media (max-width: 430px) {
  .product {
-  &__card-block {
-    grid-template-columns: repeat(1, 1fr);
+    &__item-block {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   .shipping {
-  &__title {
-    font-size: 24px;
-    line-height: 28px;
-   }
+    &__title {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
- }
  .order {
    .product__img {
     &--cart {
@@ -1572,10 +1579,10 @@
     }
   }
   .product {
-    &__card-block {
+    &__item-block {
       margin-bottom: 20px;
     }
-    &__cadr {
+    &__item {
       padding-top: 40px;
       padding-bottom: 20px;
     }
