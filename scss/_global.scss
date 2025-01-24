@@ -3,17 +3,16 @@ body {
   height: 100%;
   position: relative;
 }
-html {
-  &.lock {
-    overflow: hidden;
-  }
-}
+
 body {
   display: flex;
   flex-direction: column;
   @extend %DMSans-400;
   font-size: 14px;
   color: #1d1d1d;
+  &.lock {
+    overflow: hidden;
+  }
 }
 .main {
   flex-grow: 1;
