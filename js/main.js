@@ -6,11 +6,14 @@ const menuList = document.querySelector('.menu__list');
 
 menuBtn.addEventListener('click', ()=>{
   if(menuBtn) {
+    openMenu()
     document.body.classList.toggle('lock');
-    menuBtn.classList.toggle('menu__btn--active');
-    menuList.classList.toggle('menu__list--active');
   }
 });
+const openMenu = ()=> {
+    menuBtn.classList.toggle('menu__btn--active');
+    menuList.classList.toggle('menu__list--active');
+}
 
 const closeMenu = ()=>{
   menuBtn.classList.remove('menu__btn--active');
@@ -18,54 +21,82 @@ const closeMenu = ()=>{
 }
 
 
+const scrollLinks = document.querySelectorAll('.menu__link')
 
-const modalTriggers = document.querySelectorAll('[data-open-cart]');
-const buttonCloseModal= document.querySelector('[data-close-modal]');
-const modal = document.querySelector('.popup');
-
-const removeLock = ()=>{
-  document.body.classList.remove('lock');
-}
-
-// Открытие модального окна
-const openModal = ()=>{
-    modal.classList.add('popup--active');
-    document.body.classList.add('lock');
-    closeMenu();
-}
-
-modalTriggers.forEach(item => {
-  item.addEventListener('click', (e)=>{ 
+scrollLinks.forEach(link => {
+  link.addEventListener('click', (e)=>{
     e.preventDefault();
-    openModal()
+    const targetId = link.getAttribute('href');
+    console.log(targetId);
+    const targetElement = document.querySelector(targetId);
+    console.log(targetElement);
+    
+    if(targetElement) {
+      const headerHeight = document.querySelector('#header').offsetHeight;
+      
+      const top = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+      
+      window.scrollTo({
+        top: top,
+        behavior: "smooth"
+      });
+    }
+    closeMenu();
   })
 });
 
+const modalController =()=>{
 
-// Закрытие модального окна
-const closeModal =()=> {
-  modal.classList.remove('popup--active');
+  const modalTriggers = document.querySelectorAll('[data-open-cart]');
+  const buttonCloseModal= document.querySelector('[data-close-modal]');
+  const modal = document.querySelector('.popup');
+  
+  const removeLock = ()=>{
+    document.body.classList.remove('lock');
+  }
+  
+  // Открытие модального окна
+  const openModal = ()=>{
+      modal.classList.add('popup--active');
+      document.body.classList.add('lock');
+      closeMenu();
+  }
+  
+  modalTriggers.forEach(item => {
+    item.addEventListener('click', (e)=>{ 
+      e.preventDefault();
+      openModal()
+    })
+  });
+  
+  
+  // Закрытие модального окна
+  const closeModal =()=> {
+    modal.classList.remove('popup--active');
+  }
+  
+  buttonCloseModal.addEventListener('click',()=> {
+     closeModal();
+     removeLock();
+  });
+  
+  // Закрытие модального окна при клике вне его содержимого
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+      removeLock();
+    }
+  });
+  // закрытие клавишей ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('popup--active')) {
+      closeModal();
+      removeLock();
+    }
+  });
 }
+modalController();
 
-buttonCloseModal.addEventListener('click',()=> {
-   closeModal();
-   removeLock();
-});
-
-// Закрытие модального окна при клике вне его содержимого
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    closeModal();
-    removeLock();
-  }
-});
-// закрытие клавишей ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('popup--active')) {
-    closeModal();
-    removeLock();
-  }
-});
 
 //слайдер
 const slideLabels = ["#organic", "#products", "#basket", "#vegetables"]; // Массив с подписями для каждого слайда
