@@ -326,7 +326,9 @@
 @media (max-width: 660px) {
   .header {
     z-index: 15;
-
+    &__inner {
+      position: static;
+    }
     &__logo-box {
       position: static;
       left: 0;

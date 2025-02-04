@@ -1,0 +1,41 @@
+{
+  "name": "vegetables",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Novemberman90/vegetables#readme",
+  "bugs": {
+    "url": "https://github.com/Novemberman90/vegetables/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novemberman90/vegetables.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "core-js": "^3.40.0",
+    "es6-promise": "^4.2.8",
+    "node": "^18.20.6",
+    "nodelist-foreach-polyfill": "^1.2.0"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "swiper": "^11.2.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "wow.js": "^1.2.2"
+  },
+  "description": ""
+}
